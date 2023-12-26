@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:layout_marginTop="30dp">
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/ic_launcher_background"
+        />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginStart="10dp">
+        <TextView
+            android:id="@+id/langage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="langage qui developpper l'APP"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/red"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/developper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:hint="Développer par ...."
+            android:layout_marginTop="20dp"/>
+    </LinearLayout>
+    <Button
+        android:id="@+id/btnMore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="More"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:textStyle="bold"
+        android:backgroundTint="@color/teal_700"
+        />
+</LinearLayout>
