@@ -21,7 +21,7 @@
             android:hint="Name de l'application "
             android:layout_marginTop="15dp"/>
         <TextView
-            android:id="@+id/langage"
+            android:id="@+id/nameLangage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Name de l'application "

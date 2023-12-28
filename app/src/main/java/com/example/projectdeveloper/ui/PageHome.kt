@@ -11,8 +11,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.projectdeveloper.R
 import com.example.projectdeveloper.model.CustomAdapter
 import com.example.projectdeveloper.model.ModeleRecyclerView
+import com.example.projectdeveloper.model.onItemClickListener
 
-class PageHome : AppCompatActivity() {
+class PageHome : AppCompatActivity() , onItemClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_page_home)
@@ -21,31 +22,33 @@ class PageHome : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         //Ajouter data dans une liste
         val dataList = listOf(
-            ModeleRecyclerView("Langage Java", "Developper en langage Java ", R.drawable.img_java),
-            ModeleRecyclerView("Langage Kotlin", "Developper en langage Kotlin", R.drawable.img_kotlin),
-            ModeleRecyclerView("Langage Swift", "Developper en langage Swift", R.drawable.img_swift),
-            ModeleRecyclerView("Langage Java", "Developper en langage Java ", R.drawable.img_java) ,
-            ModeleRecyclerView("Langage Kotlin", "Developper en langage Kotlin", R.drawable.img_kotlin),
-            ModeleRecyclerView("Langage Swift", "Developper en langage Swift", R.drawable.img_swift),
-            ModeleRecyclerView("Langage Java", "Developper en langage Java ", R.drawable.img_java),
-            ModeleRecyclerView("Langage Kotlin", "Developper en langage Kotlin", R.drawable.img_kotlin),
-            ModeleRecyclerView("Langage Swift", "Developper en langage Swift", R.drawable.img_swift),
-            ModeleRecyclerView("Langage Java", "Developper en langage Java ", R.drawable.img_java),
-            ModeleRecyclerView("Langage Kotlin", "Developper en langage Kotlin", R.drawable.img_kotlin),
-            ModeleRecyclerView("Langage Swift", "Developper en langage Swift", R.drawable.img_swift),
-            ModeleRecyclerView("Langage Java", "Developper en langage Java ", R.drawable.img_java) ,
-            ModeleRecyclerView("Langage Kotlin", "Developper en langage Kotlin", R.drawable.img_kotlin),
-            ModeleRecyclerView("Langage Swift", "Developper en langage Swift", R.drawable.img_swift),
-            ModeleRecyclerView("Langage Java", "Developper en langage Java ", R.drawable.img_java) ,
-            ModeleRecyclerView("Langage Kotlin", "Developper en langage Kotlin", R.drawable.img_kotlin),
-            ModeleRecyclerView("Langage Swift", "Developper en langage Swift", R.drawable.img_swift),
+            ModeleRecyclerView("Langage_Java", "Developper en langage Java ", R.drawable.img_java),
+            ModeleRecyclerView("Langage_Kotlin", "Developper en langage Kotlin", R.drawable.img_kotlin),
+            ModeleRecyclerView("Langage_Swift", "Developper en langage Swift", R.drawable.img_swift),
+            ModeleRecyclerView("Langage_Java", "Developper en langage Java ", R.drawable.img_java) ,
+            ModeleRecyclerView("Langage_Kotlin", "Developper en langage Kotlin", R.drawable.img_kotlin),
+            ModeleRecyclerView("Langage_Swift", "Developper en langage Swift", R.drawable.img_swift),
+            ModeleRecyclerView("Langage_Java", "Developper en langage Java ", R.drawable.img_java),
+            ModeleRecyclerView("Langage_Kotlin", "Developper en langage Kotlin", R.drawable.img_kotlin),
+            ModeleRecyclerView("Langage_Swift", "Developper en langage Swift", R.drawable.img_swift),
+            ModeleRecyclerView("Langage_Java", "Developper en langage Java ", R.drawable.img_java),
+            ModeleRecyclerView("Langage_Kotlin", "Developper en langage Kotlin", R.drawable.img_kotlin),
+            ModeleRecyclerView("Langage_Swift", "Developper en langage Swift", R.drawable.img_swift),
+            ModeleRecyclerView("Langage_Java", "Developper en langage Java ", R.drawable.img_java) ,
+            ModeleRecyclerView("Langage_Kotlin", "Developper en langage Kotlin", R.drawable.img_kotlin),
+            ModeleRecyclerView("Langage_Swift", "Developper en langage Swift", R.drawable.img_swift),
+            ModeleRecyclerView("Langage_Java", "Developper en langage Java ", R.drawable.img_java) ,
+            ModeleRecyclerView("Langage_Kotlin", "Developper en langage Kotlin", R.drawable.img_kotlin),
+            ModeleRecyclerView("Langage_Swift", "Developper en langage Swift", R.drawable.img_swift),
         )
         //declarer Custome Adapter
-        val customAdapter = CustomAdapter(this, dataList)
+        val customAdapter = CustomAdapter(this, dataList,this)
+
         //Operation au momment de click en RecyclerView
-        customAdapter.setOnItemClickListener { modeleRecyclerView ->
+        /*customAdapter.setOnItemClickListener { modeleRecyclerView ->
             Toast.makeText(this, "Cliqué sur ${modeleRecyclerView.langage}", Toast.LENGTH_SHORT).show()
-        }
+        }*/
+
         //affecter Custome Adapter dans une RecyclerView
         recyclerView.adapter = customAdapter
 
@@ -78,7 +81,8 @@ class PageHome : AppCompatActivity() {
             Toast.makeText(this,"Clicked in icon Add",Toast.LENGTH_SHORT).show()
         }
         else if (itemId == R.id.java){
-            Toast.makeText(this,"Clicked in langage java ",Toast.LENGTH_SHORT).show()
+            //supportFragmentManager.beginTransaction().replace(R.id.fragment,ProjetsJava()).commit()
+            Toast.makeText(this,"Clicked in langage Java ",Toast.LENGTH_SHORT).show()
         }
         else if (itemId == R.id.kotlin){
             Toast.makeText(this,"Clicked in langage kotlin ",Toast.LENGTH_SHORT).show()
@@ -87,5 +91,9 @@ class PageHome : AppCompatActivity() {
             Toast.makeText(this,"Clicked in langage Swift",Toast.LENGTH_SHORT).show()
         }
         return super.onOptionsItemSelected(item)
+    }
+    override fun onItemClick(modeleRecyclerView: ModeleRecyclerView) {
+        var intent = Intent(this,activity_Information::class.java)
+        startActivity(intent)
     }
 }

@@ -4,13 +4,14 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projectdeveloper.R
+import com.example.projectdeveloper.ui.PageHome
 
-class CustomAdapter(private var context: Context, private var dataList: List<ModeleRecyclerView>) :
+class CustomAdapter(private var context: Context, private var dataList: List<ModeleRecyclerView>, private var onClickListener: onItemClickListener) :
     RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
 
     private var onItemClickListener: ((ModeleRecyclerView) -> Unit)? = null
@@ -21,6 +22,7 @@ class CustomAdapter(private var context: Context, private var dataList: List<Mod
         val langage: TextView = itemView.findViewById(R.id.langage)
         val developper: TextView = itemView.findViewById(R.id.developper)
         val imageView: ImageView = itemView.findViewById(R.id.imageView)
+        val btnMore:Button = itemView.findViewById(R.id.btnMore)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -34,11 +36,12 @@ class CustomAdapter(private var context: Context, private var dataList: List<Mod
         holder.langage.text = modeleRecyclerView.langage
         holder.developper.text = modeleRecyclerView.developper
         holder.imageView.setImageResource(modeleRecyclerView.image)
-        holder.itemView.setOnClickListener {
-            onItemClickListener?.invoke(modeleRecyclerView)
+        holder.btnMore.setOnClickListener {
+            onClickListener.onItemClick(modeleRecyclerView)
         }
-    }
+        }
     override fun getItemCount(): Int {
         return dataList.size
     }
 }
+

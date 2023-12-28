@@ -48,29 +48,4 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
-
-    override fun onStart() {
-        super.onStart()
-        Toast.makeText(this,"L'application onStart",Toast.LENGTH_SHORT).show()
-    }
-    override fun onResume() {
-        super.onResume()
-        Toast.makeText(this,"L'application onResume",Toast.LENGTH_SHORT).show()
-    }
-    override fun onPause() {
-        super.onPause()
-        Toast.makeText(this,"L'application onPause",Toast.LENGTH_SHORT).show()
-    }
-    override fun onStop() {
-        super.onStop()
-        Toast.makeText(this,"L'application onStop",Toast.LENGTH_SHORT).show()
-    }
-    override fun onDestroy() {
-        super.onDestroy()
-        Toast.makeText(this,"L'application onDestroy",Toast.LENGTH_SHORT).show()
-    }
-    override fun onRestart() {
-        super.onRestart()
-        Toast.makeText(this,"L'application onRestart",Toast.LENGTH_SHORT).show()
-    }
 }
